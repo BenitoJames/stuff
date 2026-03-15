@@ -1,0 +1,22 @@
+.bio-text-field {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: var(--font-size-body);
+  font-family: var(--font-family);
+  transition: 0.3s ease;
+}
+
+.form-actions {
+    display: flex;
+    flex-direction: column;  
+    justify-content: center;
+    gap: 1rem;             
+}
+
+.register-link {
+    text-decoration: none;
+}
+
+

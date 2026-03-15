@@ -1,0 +1,232 @@
+:root {
+    /* Colors - TO BE DEFINED  */
+    --primary: #3498db; /* PLACEHOLDER */
+    --primary-rgb: 52, 152, 219; /* PLACEHOLDER */
+    --accent: #e74c3c; /* PLACEHOLDER */
+    --text-dark: #2c3e50; /* PLACEHOLDER */
+    --text-light: #7f8c8d; /* PLACEHOLDER */
+    --background-light: #f8f9fa; /* PLACEHOLDER */
+    --background-dark: #2c3e50; /* PLACEHOLDER */
+
+    /* Fonts - TO BE DEFINED  */
+    --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; /* PLACEHOLDER */
+    --font-header: var(--font-primary); /* PLACEHOLDER */
+    
+    /* Font Sizes */
+    --font-size-header: 2.5rem; /* PLACEHOLDER */
+    --font-size-supporting: 1rem; /* PLACEHOLDER */
+    --font-size-details: 0.875rem; /* PLACEHOLDER */
+    
+    /* Line Height */
+    --line-height: 1.6;
+    
+    /* Spacing */
+    --container-width: 75rem;
+    --container-padding: 1.5rem;
+    --section-padding: 1.5rem;
+}
+
+/* RESET & BASE STYLES */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-supporting);
+    line-height: var(--line-height);
+    color: var(--text-dark);
+    background: #fff;
+}
+
+/* TYPOGRAPHY */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-header);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: var(--font-size-header);
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--accent);
+}
+
+/* LAYOUT  */
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+.section {
+    padding: var(--section-padding) 0;
+}
+
+/* COMPONENTS - TO BE COMPLETED  */
+
+/* Navigation Bar */
+.navbar {
+    /* TO BE DEFINED */
+    background: var(--background-light);
+    padding: 1rem 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.nav-link {
+    /* TO BE DEFINED */
+    padding: 0.5rem 1rem;
+    display: inline-block;
+}
+
+/* Buttons */
+.btn {
+    /* TO BE DEFINED */
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.btn-primary {
+    /* TO BE DEFINED */
+    background: var(--primary);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-outline {
+    /* TO BE DEFINED */
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+/* Cards */
+.card {
+    /* TO BE DEFINED */
+    background: #fff;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Stars Rating Display */
+.stars {
+    /* TO BE DEFINED */
+    display: inline-flex;
+    gap: 0.25rem;
+}
+
+.star-filled {
+    /* TO BE DEFINED */
+    color: var(--accent);
+}
+
+.star-half {
+    /* TO BE DEFINED */
+    color: var(--accent);
+}
+
+.star-empty {
+    /* TO BE DEFINED */
+    color: #e0e0e0;
+}
+
+/*RESPONSIVE DESIGN */
+
+/* Mobile Breakpoint */
+@media (max-width: 768px) {
+    :root {
+        --font-size-header: 2rem;
+        --container-padding: 1rem;
+        --section-padding: 1rem;
+    }
+
+    body {
+        font-size: 0.9rem;
+    }
+}
+
+/*  UTILITY CLASSES */
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}

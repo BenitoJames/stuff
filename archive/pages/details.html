@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Establishment Details | AgnoRated</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css"> <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+    <div class="navbar-logo">
+        <img src="../assets/img/logo.png" alt="AgnoRated Logo" class="logo-img">
+        <span>AgnoRated</span>
+    </div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="establishments.html">Browse</a>
+        <a href="login.html">Login</a>
+        <a href="profile.html">Profile</a>
+    </div>
+    </nav>
+
+    <main class="container">
+    <div class="card"> <img id="est-main-img" src="" alt="Establishment Image" class="card-image" style="height: 400px;">
+      
+    <h1 id="est-name">Loading...</h1>
+    <div id="est-rating" class="stars"></div> <div class="section">
+        <p><strong>Cuisine:</strong> <span id="est-cuisine"></span></p>
+        <p><strong>Price Range:</strong> <span id="est-price"></span></p>
+        <p><strong>Location:</strong> <span id="est-location"></span></p>
+        <a id="est-map" href="#" target="_blank" class="btn btn-outline">View on Google Maps</a>
+    </div>
+
+    <hr>
+
+    <div class="section">
+        <h3>About</h3>
+        <p id="est-description"></p>
+        
+        <div id="est-tags" class="tag-container"></div> </div>
+
+    <hr>
+    <hr>
+
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-md);">
+            <h3>Customer Reviews</h3>
+            <a href="review.html" class="btn btn-primary">Write a Review</a>
+        </div>
+        
+        <div id="reviews-container"></div>
+        
+        <div id="no-reviews" style="display: none; text-align: center; padding: var(--spacing-lg); color: var(--text-light);">
+            <p>No reviews yet. Be the first to review this establishment!</p>
+            <a href="review.html" class="btn btn-outline" style="margin-top: var(--spacing-sm);">Write the First Review</a>
+        </div>
+    </div>
+
+    <hr>  
+  
+    <div class="section">
+        <h3>Gallery</h3>
+        <div id="est-gallery" class="establishment-grid"></div>
+    </div>
+
+        <a href="establishments.html" class="btn btn-primary">Back to Browse</a>
+    </div>
+  </main>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/main.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const params = new URLSearchParams(window.location.search);
+      const idParam = params.get('id');
+      const id = parseInt(idParam);
+      
+      const est = establishments.find(item => item.id === id);
+
+      if (!idParam || isNaN(id)) {
+        window.location.href = '404.html?error=invalid';
+      } else if (!est) {
+        window.location.href = '404.html?error=notfound';
+      } else {
+      }
+    });
+  </script>
+</body>
+</html>

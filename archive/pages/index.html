@@ -1,0 +1,73 @@
+<!-- land page with nav to all other pages
+NOTE navigation must be thru links -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AgnoRated | Rate Every Bite</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="../assets/img/logo.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="navbar">
+    <div class="navbar-logo">
+      <img src="../assets/img/logo.png" alt="AgnoRated Logo" class="logo-img">
+      <span>AgnoRated</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="establishments.html">Browse</a>
+      <a href="login.html">Login</a>
+      <a href="profile.html">Profile</a>
+    </div>
+  </nav>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="hero">
+    <div class="container">
+      <h1>Rate Every Bite Around DLSU</h1>
+      <p>Discover, review, and bookmark your favorite food spots around the campus</p>
+      <a href="establishments.html" class="btn btn-primary">Browse Food Spots</a>
+    </div>
+  </section>
+
+  <!-- ================= SEARCH SECTION ================= -->
+  <section class="container section">
+    <h2>Find Your Next Meal</h2>
+
+    <div class="search-bar">
+      <div class="search-input-wrapper">
+        <input type="text" id="index-search-input" class="input-field" placeholder="Search for food stalls, tags, or keywords...">
+        <div id="index-search-results" class="search-results"></div>
+      </div>
+      <button id="index-search-btn" class="btn btn-primary">Search</button>
+    </div>
+  </section>
+
+  <!-- ================= FEATURED ESTABLISHMENTS ================= -->
+  <section class="container section">
+    <h1>Featured Stalls</h1>
+    <hr> <br>
+    <div class="establishment-grid"></div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container">
+      <p class="small-text">© 2026 AgnoRated | Built by Benito, Chong, Medina, Ruiz </p>
+    </div>
+  </footer>
+
+  <!-- main script -->
+  <script src="../js/data.js"></script>
+  <script src="../js/main.js"></script>
+
+</body>
+</html>

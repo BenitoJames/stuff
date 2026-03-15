@@ -1,0 +1,112 @@
+{{! establishments }}
+
+<!-- list of food stalls/restos w ratings + search filter -->
+
+<!-- ================= FILTER SECTION ================= -->
+<section class="container section filters-section">
+    <h1>All Establishments</h1>
+    <hr><br>
+
+    <h1>Filters</h1>
+
+    <div class="filters-container">
+
+        <!-- Search -->
+        <div class="filter-group">
+            <label class="form-label">Search</label>
+            <input type="text" class="input-field" id="search-input"
+                placeholder="Search by name or keyword...">
+        </div>
+
+        <!-- Rating -->
+        <div class="filter-group">
+            <label class="form-label">Min Rating</label>
+
+            <select id="rating-filter" class="input-field">
+                <option value="">All Ratings</option>
+                <option value="5">⭐⭐⭐⭐⭐ (5 stars)</option>
+                <option value="4">⭐⭐⭐⭐ (4+ stars)</option>
+                <option value="3">⭐⭐⭐ (3+ stars)</option>
+                <option value="2">⭐⭐ (2+ stars)</option>
+                <option value="1">⭐ (1+ stars)</option>
+            </select>
+        </div>
+
+        <!-- Tags -->
+        <div class="filter-group tags-group">
+            <label class="form-label">Tags</label>
+
+            <div class="tag-filter-container">
+            <label class="tag-checkbox">
+                <input type="checkbox" class="tag-filter" value="Affordable"> Affordable
+            </label>
+
+            <label class="tag-checkbox">
+                <input type="checkbox" class="tag-filter" value="Fast Service"> Fast Service
+            </label>
+
+            <label class="tag-checkbox">
+                <input type="checkbox" class="tag-filter" value="Student Friendly"> Student Friendly
+            </label>
+
+            <label class="tag-checkbox">
+                <input type="checkbox" class="tag-filter" value="Comfort Foods"> Comfort Foods
+            </label>
+
+            <label class="tag-checkbox">
+                <input type="checkbox" class="tag-filter" value="Casual Dining"> Casual Dining
+            </label>
+
+            <label class="tag-checkbox">
+                <input type="checkbox" class="tag-filter" value="Hangout Spots"> Hangout Spots
+            </label>
+
+            <label class="tag-checkbox">
+                <input type="checkbox" class="tag-filter" value="Fried Chicken"> Fried Chicken
+            </label>
+
+            <label class="tag-checkbox">
+                <input type="checkbox" class="tag-filter" value="Coffee"> Coffee
+            </label>
+            </div>
+        </div>
+
+        <div class="filter-actions">
+        <button class="btn btn-outline" id="clear-filters">Clear Filters</button>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= ESTABLISHMENTS GRID ================= -->
+
+<section class="container section">
+
+    <div class="establishment-grid">
+
+        {{#each establishments}}
+
+        <div class="card establishment-card">
+
+            <img src="{{imageUrl}}" class="card-image" alt="{{name}}">
+
+            <h3>{{name}}</h3>
+
+            <p class="small-text">{{cuisineType}}</p>
+
+            <div class="stars">
+            ⭐ {{rating}}
+            </div>
+
+            <a href="/establishments/{{_id}}" class="btn btn-primary">
+            View Details
+            </a>
+
+        </div>
+
+        {{/each}}
+
+    </div>
+
+</section>

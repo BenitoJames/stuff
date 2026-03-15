@@ -1,0 +1,129 @@
+{{! review form }}
+
+<main class="section">
+    <div class="container">
+
+        <div class="review-form-header">
+            <h1>{{formTitle}}</h1>
+            <p class="subtitle">Share your dining experience with the DLSU community</p>
+        </div>
+
+        <form class="review-form" id="reviewForm" method="POST" action="{{formAction}}" enctype="multipart/form-data">
+
+            <!-- Review Title -->
+            <div class="form-group">
+                <label class="form-label">Review Title *</label>
+
+                <input 
+                    type="text"
+                    id="reviewTitle"
+                    class="input-field"
+                    name="reviewTitle"
+                    placeholder="Sum up your experience in one line"
+                    maxlength="100"
+                    required
+                    value="{{review.title}}"
+                >
+
+                <span class="char-count">0/100</span>
+            </div>
+
+            <!-- Star Rating -->
+            <div class="form-group">
+
+                <label class="form-label">Your Rating *</label>
+
+                <div class="stars-input" id="starsInput">
+
+                    {{#each stars}}
+                    <button type="button" class="star-btn" data-value="{{this}}">
+                        <span class="star-icon">⭐</span>
+                    </button>
+                    {{/each}}
+
+                </div>
+
+                <input type="hidden" name="rating" id="ratingValue" value="{{review.rating}}" required>
+
+                <p class="rating-text" id="ratingText">Click to rate</p>
+
+            </div>
+
+            <!-- Review Content -->
+            <div class="form-group">
+
+                <label class="form-label">Your Review *</label>
+
+                <textarea
+                    id="reviewContent"
+                    class="input-field textarea-field"
+                    name="reviewContent"
+                    rows="8"
+                    maxlength="1000"
+                    placeholder="Tell us about the food, service, ambiance, value for money..."
+                    required
+                >{{review.body}}</textarea>
+
+                <span class="char-count">0/1000</span>
+
+            </div>
+
+            <!-- Tags -->
+            <div class="form-group">
+
+                <label class="form-label">Tags (Optional)</label>
+
+                <div class="tag-container" id="tagContainer">
+
+                    {{#each tags}}
+                        <button 
+                            type="button"
+                            class="tag tag-selectable"
+                            data-tag="{{this}}">
+                            {{this}}
+                        </button>
+                    {{/each}}
+
+                </div>
+
+                <input type="hidden" name="tags" id="selectedTags">
+
+            </div>
+
+            <!-- Image Upload -->
+            <div class="form-group">
+
+                <label class="form-label">Add Photos (Optional)</label>
+
+                <div class="image-upload-area">
+
+                    <input 
+                        type="file"
+                        name="images"
+                        accept="image/*"
+                        multiple
+                    >
+
+                </div>
+
+            </div>
+
+            <!-- Form Actions -->
+            <div class="form-actions">
+
+                <button type="button" class="btn btn-outline" onclick="location.href='/establishments'">
+                    Cancel
+                </button>
+
+                <button type="submit" class="btn btn-primary">
+                    {{submitText}}
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+</main>
+
+<script src="/js/review.js"></script>

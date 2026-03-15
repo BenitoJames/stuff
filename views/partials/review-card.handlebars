@@ -1,0 +1,17 @@
+{{! review card }}
+
+<article class="review-card">
+    <div class="review-header">
+        <h4>{{#if userId.username}}
+                {{userId.username}}
+            {{else}}
+                Anonymous
+            {{/if}}
+        </h4>
+        <span>{{rating}}/5</span>
+    </div>
+    <p class="review-comment">{{comment}}</p>
+    {{#if createdAt}}
+        <small>{{createdAt}}</small>
+    {{/if}}
+</article>

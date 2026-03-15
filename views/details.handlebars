@@ -1,0 +1,133 @@
+{{! details }}
+
+<main class="container">
+
+<div class="card">
+
+    <!-- Establishment Image -->
+    <img src="{{establishment.imageUrl}}" alt="{{establishment.name}}" class="card-image" style="height: 400px;">
+
+    <!-- Establishment Info -->
+    <h1>{{establishment.name}}</h1>
+
+    <div class="stars">
+        ⭐ {{establishment.rating}}
+    </div>
+
+    <div class="section">
+
+        <p><strong>Cuisine:</strong> {{establishment.cuisineType}}</p>
+
+        <p><strong>Price Range:</strong> {{establishment.priceRange}}</p>
+
+        <p><strong>Location:</strong> {{establishment.location}}</p>
+
+        <p>{{establishment.description}}</p>
+
+        <!-- Tags -->
+        <div class="tag-container">
+            {{#each establishment.tags}}
+                <span class="tag">{{this}}</span>
+            {{/each}}
+        </div>
+
+    </div>
+
+    <hr>
+
+    <!-- Reviews Section -->
+        <div class="section">
+
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: var(--spacing-md);">
+
+                <h3>Customer Reviews</h3>
+
+                <div style="display:flex; gap: 10px;">
+
+                    <!-- Write Review Button -->
+                    <a href="/review/create/{{establishment._id}}" class="btn btn-primary">
+                        Write a Review
+                   </a>
+
+                    <!-- Bookmark Button -->
+                        <button class="btn btn-primary" id="bookmarkBtn" data-id="{{establishment._id}}">
+                            {{#if isBookmarked}}Remove Bookmark{{else}}Add to Bookmark{{/if}}
+                        </button>
+
+                        <script>
+                            document.getElementById('bookmarkBtn').addEventListener('click', async (e) => {
+                            e.preventDefault(); // prevent default form/button action
+                            const btn = e.currentTarget;
+                            const id = btn.dataset.id;
+
+                            const res = await fetch(`/review/bookmark/${id}`, { method: 'POST' });
+                            const data = await res.json();
+
+                            alert(data.message);
+
+                            // Optionally toggle button text without reloading
+                            if (btn.textContent.includes('Add')) {
+                                btn.textContent = 'Remove Bookmark';
+                            } else {
+                                btn.textContent = 'Add to Bookmark';
+                            }
+                        });
+                        </script>
+
+            </div>
+
+            </div>
+
+            {{#if reviews.length}}
+                <div id="reviews-container">
+                    {{#each reviews}}
+                        <div class="card review-card">
+                            <h4>{{this.userId.username}}</h4>
+                            <div class="stars">
+                                ⭐ {{this.rating}}
+                            </div>
+                            <p>{{this.body}}</p>
+
+                            <!-- Owner Response -->
+                            {{#if this.ownerResponse}}
+                                <div class="section">
+                                    <h5>Owner Response</h5>
+                                    <p>{{this.ownerResponse}}</p>
+                                </div>
+                            {{/if}}
+
+                        </div>
+                    {{/each}}
+                </div>
+            {{else}}
+                <p>No reviews yet. Be the first to review this establishment!</p>
+            {{/if}}
+
+        </div>
+
+    <hr>
+
+    <!-- Gallery Section -->
+    <div class="section">
+
+        <h3>Gallery</h3>
+
+        <div class="establishment-grid">
+
+            {{#each establishment.gallery}}
+
+                <img src="{{this}}" class="card-image">
+
+            {{/each}}
+
+        </div>
+
+    </div>
+
+    <a href="/establishments" class="btn btn-primary">
+    Back to Browse
+    </a>
+
+</div>
+
+</main>

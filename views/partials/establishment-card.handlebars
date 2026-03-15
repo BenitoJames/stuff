@@ -1,0 +1,13 @@
+{{! establishment card }}
+
+<article class="card establishment-card">
+    <img src="{{#if imageUrl}}{{imageUrl}}{{else}}/assets/img/placeholder-food.jpg{{/if}}" alt="{{name}}" class="card-image">
+    <div class="establishment-content">
+        <h3>{{name}}</h3>
+        <p>{{description}}</p>
+        <p><strong>Cuisine:</strong> {{cuisineType}}</p>
+        <p><strong>Location:</strong> {{location}}</p>
+        <p><strong>Rating:</strong> {{rating}}</p>
+        <a href="/establishments/{{_id}}" class="btn btn-primary">View Details</a>
+    </div>
+</article>

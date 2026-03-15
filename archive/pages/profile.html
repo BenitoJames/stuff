@@ -1,0 +1,72 @@
+<!-- Profile Page of Users -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AgnoRated | Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/profile.css">
+</head>
+
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="navbar">
+    <div class="navbar-logo">
+      <img src="../assets/img/logo.png" class="logo-img">
+      <span>AgnoRated</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="establishments.html">Browse</a>
+      <a href="profile.html">Profile</a>
+      <a href="login.html" id="logout">Logout</a>
+    </div>
+  </nav>
+
+<div class="container">
+
+    <!-- PROFILE HEADER -->
+    <section class="section card">
+
+        <img id="profile-avatar" width="200">
+        <h2 id="profile-username"></h2>
+        <p id="profile-bio"></p>
+        <button onclick="document.location='edit-profile.html'" class="btn btn-primary">Edit Profile</a>
+
+    </section>
+
+    <!-- BOOKMARKS -->
+    <section class="section">
+
+        <h3>Bookmarked Establishments</h3>
+
+        <div id="bookmark-container" class="establishment-grid"></div>
+
+    </section>
+
+    <!-- USER REVIEWS -->
+    <section class="section">
+
+        <h3>User Reviews</h3>
+
+        <div id="reviews-container"></div>
+
+    </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <p class="small-text">© 2026 AgnoRated | Built by Group 7</p>
+  </div>
+</footer>
+</body>
+
+ <script src="../js/profile.js"></script> <!-- CONTENT OF PROFILE.JS IS FOR DEMO PURPOSE ONLY -->
+</html>

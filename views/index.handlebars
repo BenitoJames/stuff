@@ -1,0 +1,36 @@
+{{! index }}
+
+<section class="hero">
+<div class="container">
+    <h1>Rate Every Bite Around DLSU</h1>
+    <p>Discover, review, and bookmark your favorite food spots around the campus</p>
+    <a href="/establishments" class="btn btn-primary">Browse Food Spots</a>
+</div>
+</section>
+
+<!-- ================= SEARCH SECTION ================= -->
+<section class="container section">
+    <h2>Find Your Next Meal</h2>
+    <div class="search-bar">
+        <div class="search-input-wrapper">
+            <input type="text" id="index-search-input" class="input-field" placeholder="Search for food stalls, tags, or keywords...">
+            <div id="index-search-results" class="search-results"></div>
+        </div>
+        <button id="index-search-btn" class="btn btn-primary">Search</button>
+    </div>
+</section>
+
+<!-- ================= FEATURED ESTABLISHMENTS ================= -->
+<section class="container section">
+    <h1>Featured Stalls</h1>
+    <hr> <br>
+    <div class="establishment-grid">
+        {{#if establishments}}
+            {{#each establishments}}
+                {{> establishment-card}}
+            {{/each}}
+        {{else}}
+            <p>No establishments found.</p>
+        {{/if}}
+    </div>
+</section>

@@ -1,0 +1,62 @@
+{{! profile }}
+
+<div class="container">
+
+    <!-- PROFILE HEADER -->
+    <section class="section card">
+        <img src="{{user.avatarUrl}}" width="200" style="border-radius:50%;">
+        <h2>{{user.username}}</h2>
+        <p>{{user.bio}}</p>
+
+        {{#if user.isMainUser}}
+            <button onclick="location.href='/profile/edit-profile'" class="btn btn-primary">
+                Edit Profile
+            </button>
+        {{/if}}
+    </section>
+
+    <!-- BOOKMARKS -->
+
+    <section class="section">
+        <h3>Bookmarked Establishments</h3>
+        <div class="establishment-grid">
+            {{#each bookmarks}}
+                <div class="card">
+                    {{!-- <img src="/assets/{{this.establishmentId.imageUrl}}" alt="{{this.establishmentId.name}}" 
+                    style="width:100%; height:150px; object-fit:cover; border-radius:8px;">
+                     --}}
+                    <h4>{{this.establishmentId.name}}</h4>
+                    <p>{{this.establishmentId.location}}</p>
+                    <a href="/establishments/{{this.establishmentId._id}}" class="btn btn-primary">View</a>
+                </div>
+            {{/each}}
+        </div>
+    </section>
+
+
+    <!-- USER REVIEWS -->
+    <section class="section">
+        <h3>User Reviews</h3>
+        <div>
+            {{#each reviews}}
+                <div class="card review-card">
+                    <h4>{{this.establishmentId.name}}</h4>
+                    <p>Rating: {{this.rating}} ⭐</p>
+                    <p>{{this.body}}</p>
+
+                    {{#if ../user.isMainUser}}
+                    <div class="review-actions">
+                        <a href="/review/edit/{{this._id}}" class="btn btn-outline">Edit</a>
+                
+                        <form action="/review/delete/{{this._id}}" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Delete this review?')">Delete</button>
+                        </form>
+                    </div>
+                    {{/if}}
+
+                </div>
+            {{/each}}
+        </div>
+    </section>
+
+</div>
